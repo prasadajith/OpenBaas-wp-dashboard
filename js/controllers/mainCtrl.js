@@ -6,7 +6,7 @@
  * - exposes the model to the template and provides event handlers
  */
 angular.module('OpenBaaS')
-	.controller('MainCtrl', function TodoCtrl($scope, dataService) {
+	.controller('MainCtrl', function ($scope, dataService) {
 		'use strict';
 
 		$scope.data = dataService.get();
