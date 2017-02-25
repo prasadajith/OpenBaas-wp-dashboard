@@ -12,6 +12,10 @@ angular.module('OpenBaaS')
 
 		var data = {foo:"baz"};
 
+		$http.get('').then(function (response) {
+			data = response.body
+        })
+
 		return {
 			get: function () {
 				return data;
