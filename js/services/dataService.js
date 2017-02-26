@@ -12,13 +12,12 @@ angular.module('OpenBaaS')
 
 		var data = {foo:"baz"};
 
-		$http.get('').then(function (response) {
-			data = response.body
-        })
 
 		return {
-			get: function () {
-				return data;
+            get: function () {
+                return $http.get('http://52.20.195.195/wordpress_wpbaas/?rest_route=/wp/v2/posts').then(function (response) {
+                    return response
+                })
             }
 		}
 	})
