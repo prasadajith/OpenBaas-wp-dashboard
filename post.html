@@ -1,0 +1,36 @@
+<html>
+   <head>
+      <title>Wordpress post display</title>
+   </head>
+
+   <body>
+      <h2>Wordpress post display</h2>
+
+      <div ng-app="" ng-controller="sampleController">
+      <table>
+        <tr ng-repeat="post in posts">
+          <td> {{post.title.rendered}} </td>  
+          <td> {{post.content.rendered}} </td>
+        </tr>
+      </table>
+        <!-- <p> {{samples[0].content.rendered}} </p> -->
+<!--         <script>
+           var noHTML =  '#content'.replace(/(<([^>]+)>)/ig,"");
+        </script>
+        <p> noHTML here : {{noHTML}} </p> -->
+      </div>
+
+   <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+   <script>
+      function sampleController($scope,$http)
+      {
+         var url = "http://52.20.195.195/wordpress_wpbaas/?rest_route=/wp/v2/posts";
+         $http.get(url).success(function(response)
+         {
+            $scope.posts = response;
+         });
+      }
+   </script>
+      
+   </body>
+</html>
